@@ -1,16 +1,12 @@
-#!/usr/bin/env python3
-
-from __future__ import print_function
+from argparse import ArgumentParser, SUPPRESS
+from openvino.inference_engine import IECore
+from io import StringIO
 import sys
 import os
-from argparse import ArgumentParser, SUPPRESS
-import cv2
+import socket
 import numpy as np
 import logging as log
 import pandas as pd
-import socket
-from io import StringIO
-from openvino.inference_engine import IECore
 
 HOST = '127.0.0.1'  # The server's hostname or IP address
 PORT = 65432        # The port used by the server
@@ -83,7 +79,7 @@ def main():
             data = s.recv(1024)
             #print(data)
 
-            StringData = StringIO('Food,Water,Dream,Sex,Toilet\n'+data.decode()+'0.586337,0.734454,0.668948,0.783575,0.57831')
+            StringData = StringIO('Food,Water,Dream,Sex,Toilet\n'+data.decode())
             inputs = np.ndarray(shape=(n, c))
             dataset = pd.read_csv(StringData, delimiter=",")
             print(dataset)

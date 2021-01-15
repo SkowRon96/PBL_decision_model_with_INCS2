@@ -1,11 +1,8 @@
-from __future__ import print_function
 import sys
 from argparse import ArgumentParser, SUPPRESS
 import logging as log
 import pandas as pd
-import numpy as np
 import random as r
-import random
 
 
 def build_argparser():
