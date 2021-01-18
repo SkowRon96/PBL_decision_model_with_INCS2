@@ -116,7 +116,7 @@ def main():
                 if possible_needs[num1] == 'dream':
                     df_out.at[i, 'output_need'] = 'go_sleep'
             if len(possible_needs) > 1:
-                num1 = random.randint(0, len(possible_needs) - 1)
+                num1 = r.randint(0, len(possible_needs) - 1)
                 if possible_needs[num1] == 'food':
                     df_out.at[i, 'output_need'] = 'go_eat'
                 if possible_needs[num1] == 'drinking':
@@ -130,7 +130,7 @@ def main():
 
         for i in range(len(df)):
             if df.at[i, df_min_ind.loc[i]] > 0.8 and 'HIGH' in args.hierarchy:
-                low_high_flag = random.randint(0, 1)
+                low_high_flag = r.randint(0, 1)
             else:
                 low_high_flag=0
 
@@ -138,7 +138,7 @@ def main():
                 #realization of high level needs
 
             if df.at[i, df_min_ind.loc[i]] > 0.8 and low_high_flag==0:
-                draw=random.randint(0, len(df.columns) - 1)
+                draw=r.randint(0, len(df.columns) - 1)
 
                 if df.iat[i, draw]  == 'food':
                    df_out.at[i, 'output_need'] = 'go_eat'

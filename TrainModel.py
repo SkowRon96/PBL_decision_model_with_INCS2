@@ -7,10 +7,10 @@ from keras.models import load_model
 import tensorflow as tf
 import pandas as pd
 
-dataset=pd.read_csv("needs.csv",delimiter=",")
+dataset=pd.read_csv("needs1.csv",delimiter=",")
 
-X=dataset.iloc[0:,0:5]
-Y=dataset.iloc[0:,5]
+X=dataset.iloc[0:,0:6]
+Y=dataset.iloc[0:,6]
 Yc=pd.get_dummies(Y)
 
 #for i in range(5):
@@ -21,8 +21,8 @@ trainX, testX = X.iloc[:n_train, :], X.iloc[n_train:, :]
 trainY, testY = Yc.iloc[:n_train], Yc.iloc[n_train:]
 
 model = Sequential()
-model.add(Dense(50, input_dim=5, activation='relu', kernel_initializer='he_uniform'))
-model.add(Dense(5, activation='softmax'))
+model.add(Dense(60, input_dim=6, activation='relu', kernel_initializer='he_uniform'))
+model.add(Dense(6, activation='softmax'))
 
 opt = SGD(lr=0.01, momentum=0.9)
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])

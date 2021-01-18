@@ -79,7 +79,7 @@ def main():
             data = s.recv(1024)
             #print(data)
 
-            StringData = StringIO('Food,Water,Dream,Sex,Toilet\n'+data.decode())
+            StringData = StringIO('Food,Water,Dream,Sex,Toilet,High\n'+data.decode())
             inputs = np.ndarray(shape=(n, c))
             dataset = pd.read_csv(StringData, delimiter=",")
             print(dataset)
@@ -111,3 +111,4 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main() or 0)
+
