@@ -7,7 +7,7 @@ import socket
 import numpy as np
 import logging as log
 import pandas as pd
-
+import datetime
 
 
 def build_argparser():
@@ -75,6 +75,8 @@ def main():
                 log.info("Something's wrong with %s:%d. Exception is %s" % (HOST, PORT, e))
 
         while True:
+
+            start_time = datetime.datetime.now()
             commend_1='GN;;'
             s.send(commend_1.encode())
             log.info("Waiting for needs....")
@@ -84,7 +86,7 @@ def main():
             StringData = StringIO('Food,Water,Dream,Sex,Toilet,High\n'+data.decode())
             inputs = np.ndarray(shape=(n, c))
             dataset = pd.read_csv(StringData, delimiter=",")
-            print(dataset)
+            #print(dataset)
             arr = dataset.to_numpy()
             arr_size = int(arr.size/c)
             outputs = []
@@ -108,7 +110,12 @@ def main():
             commend_2 = 'SPOL;'+str1+';'
             s.send(commend_2.encode())
             log.info("Sending decisions to server")
+            end_time = datetime.datetime.now()
+            time_diff = (end_time - start_time)
 
+            execution_time = time_diff.total_seconds() * 1000
+
+            print("Execution time [ms]: ", execution_time)
     log.info("End\n")
 
 if __name__ == '__main__':
