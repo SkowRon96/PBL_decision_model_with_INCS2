@@ -21,6 +21,7 @@ Running decison model - INCS2_client.py
 When the enviroment is activated input such command to run application:
 
 **python .\INCS2_client.py -m .\IR\Maslow\tf_model.xml -ip ip_adress -port port**
+
 **python .\INCS2_client.py -m .\IR\Rand\tf_model.xml -ip ip_adress -port port**
 
 when running the application without Intel Neural Stick 2 remove device parameter.
