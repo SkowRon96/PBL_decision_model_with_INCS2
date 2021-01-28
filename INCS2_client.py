@@ -8,7 +8,7 @@ import numpy as np
 import logging as log
 import pandas as pd
 import datetime
-
+import random as r
 
 def build_argparser():
     parser = ArgumentParser(add_help=False)
@@ -30,6 +30,7 @@ def build_argparser():
     args.add_argument("--labels", help="Optional. Path to a labels mapping file", default=None, type=str)
     args.add_argument("-nt", "--number_top", help="Optional. Number of top results", default=10, type=int)
     args.add_argument("-ip", "--ip_server", help="Optional. IP adress of server", default='127.0.0.1', type=str)
+    args.add_argument("-r", "--rrandom", help="Optional. Random decision making", default='NO', type=str)
     args.add_argument("-port", "--port_server", help="Optional. Port of server", default=65432, type=int)
     return parser
 
@@ -104,6 +105,10 @@ def main():
                 res = res[out_blob]
                 print("INPUT \r\n",np.array([arr[j, :]]))
                 print("NCS \r\n", res, '\r\nPredicted:', res.argmax())
+
+            if 'YES' in args.rrandom:
+                outputs.append(r.randint(0, 5))
+            else:
                 outputs.append(res.argmax())
 
             str1 = ','.join(str(e) for e in outputs)
