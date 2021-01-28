@@ -106,10 +106,10 @@ def main():
                 print("INPUT \r\n",np.array([arr[j, :]]))
                 print("NCS \r\n", res, '\r\nPredicted:', res.argmax())
 
-            if 'YES' in args.rrandom:
-                outputs.append(r.randint(0, 5))
-            else:
-                outputs.append(res.argmax())
+                if 'YES' in args.rrandom:
+                    outputs.append(r.randint(0, 5))
+                else:
+                    outputs.append(res.argmax())
 
             str1 = ','.join(str(e) for e in outputs)
             commend_2 = 'SPOL;'+str1+';'
