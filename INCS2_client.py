@@ -81,7 +81,7 @@ def main():
             commend_1='GN;;'
             s.send(commend_1.encode())
             log.info("Waiting for needs....")
-            data = s.recv(1024)
+            data = s.recv(8192)
             #print(data)
 
             StringData = StringIO('Food,Water,Dream,Sex,Toilet,High\n'+data.decode())
