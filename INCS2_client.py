@@ -108,8 +108,8 @@ def main():
             # Processing output blob
                 log.info("Processing output blob")
                 res = res[out_blob]
-                print("INPUT \r\n",np.array([arr[j, :]]))
-                print("NCS \r\n", res, '\r\nPredicted:', res.argmax())
+                log.info("INPUT \r\n",np.array([arr[j, :]]))
+                log.info("NCS \r\n", res, '\r\nPredicted:', res.argmax())
 
                 if 'YES' in args.rrandom:
                     outputs.append(r.randint(0, 5))
@@ -125,7 +125,7 @@ def main():
 
             execution_time = time_diff.total_seconds() * 1000
 
-            print("Execution time [ms]: ", execution_time)
+            log.info("Execution time [ms]: ", execution_time)
     log.info("End\n")
 
 if __name__ == '__main__':
