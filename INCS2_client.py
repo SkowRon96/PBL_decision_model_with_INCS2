@@ -32,13 +32,18 @@ def build_argparser():
     args.add_argument("-ip", "--ip_server", help="Optional. IP adress of server", default='127.0.0.1', type=str)
     args.add_argument("-r", "--rrandom", help="Optional. Random decision making", default='NO', type=str)
     args.add_argument("-port", "--port_server", help="Optional. Port of server", default=65432, type=int)
+    args.add_argument("-log", "--logs_info", help="Optional. Loging to console", default='YES', type=str)
     return parser
 
 def main():
-    log.basicConfig(format="[ %(levelname)s ] %(message)s", level=log.INFO, stream=sys.stdout)
+
     args = build_argparser().parse_args()
     model_xml = args.model
     model_bin = os.path.splitext(model_xml)[0] + ".bin"
+    if 'NO' in args.logs_info:
+        log.basicConfig(format="[ %(levelname)s ] %(message)s", level=log.ERROR, stream=sys.stdout)
+    else:
+        log.basicConfig(format="[ %(levelname)s ] %(message)s", level=log.INFO, stream=sys.stdout)
 
     # Plugin initialization for specified device and load extensions library if specified
     log.info("Creating Inference Engine")
@@ -73,7 +78,7 @@ def main():
                 log.info("Connected to TCP\IP server")
                 break
             except Exception as e:
-                log.info("Something's wrong with %s:%d. Exception is %s" % (HOST, PORT, e))
+                log.error("Something's wrong with %s:%d. Exception is %s" % (HOST, PORT, e))
 
         while True:
 
