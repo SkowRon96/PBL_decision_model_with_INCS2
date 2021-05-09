@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--model=./IR/Maslow/tf_model.xml",
+                //"--device=MYRIAD",
+                "--ip_server=localhost",
+                "--port_server=8052",
+                "--rrandom=NO",
+                "--logs_info=YES"
+            ],
+            "cwd": "${fileDirname}"
+        }
+    ]
+}

@@ -78,7 +78,7 @@ def main():
                 log.info("Connected to TCP\IP server")
                 break
             except Exception as e:
-                log.error("Something's wrong with %s:%d. Exception is %s" % (HOST, PORT, e))
+                log.error(f"Something's wrong with {HOST}:{PORT}. Exception is {e}")
 
         while True:
 
@@ -108,8 +108,8 @@ def main():
             # Processing output blob
                 log.info("Processing output blob")
                 res = res[out_blob]
-                log.info("INPUT \r\n",np.array([arr[j, :]]))
-                log.info("NCS \r\n", res, '\r\nPredicted:', res.argmax())
+                log.info(f"INPUT {np.array([arr[j, :]])}")
+                log.info(f"NCS {res}. Predicted: {res.argmax()}")
 
                 if 'YES' in args.rrandom:
                     outputs.append(r.randint(0, 5))
