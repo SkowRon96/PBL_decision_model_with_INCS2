@@ -1,6 +1,7 @@
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.optimizers import SGD
+from keras.utils.vis_utils import plot_model
 from matplotlib import pyplot
 from keras import layers, models
 from keras.models import load_model
@@ -22,11 +23,13 @@ trainY, testY = Yc.iloc[:n_train], Yc.iloc[n_train:]
 
 model = Sequential()
 model.add(Dense(60, input_dim=6, activation='relu', kernel_initializer='he_uniform'))
+model.add(Dense(120, activation='relu'))
+model.add(Dense(60, activation='relu'))
 model.add(Dense(6, activation='softmax'))
 
-opt = SGD(lr=0.01, momentum=0.9)
+opt = SGD(lr=0.05, momentum=0.75)
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
-history=model.fit(trainX, trainY, validation_data=(testX, testY), epochs=25)
+history=model.fit(trainX, trainY, validation_data=(testX, testY), epochs=100)
 
 # evaluate the model
 _, train_acc = model.evaluate(trainX, trainY)
@@ -45,6 +48,8 @@ pyplot.plot(history.history['accuracy'], label='train')
 pyplot.plot(history.history['val_accuracy'], label='test')
 pyplot.legend()
 pyplot.show()
+
+plot_model(model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
 
 predictions = model.predict(X)
 predictions_2 = model.predict_classes(X)
