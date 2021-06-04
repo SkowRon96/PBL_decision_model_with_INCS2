@@ -8,16 +8,17 @@ from keras.models import load_model
 import tensorflow as tf
 import pandas as pd
 
-dataset=pd.read_csv("needs1.csv",delimiter=",")
-
+#dataset=pd.read_csv("Artifical_Data/needs.csv",delimiter=",")
+dataset=pd.read_csv("Real_Data/real_needs.csv",delimiter=",")
 X=dataset.iloc[0:,0:6]
 Y=dataset.iloc[0:,6]
 Yc=pd.get_dummies(Y)
 
-#for i in range(5):
-#	print('%s => %d ' % (X[i].tolist(), Y[i]))
+# for i in range(5):
+# 	print('%s => %d ' % (X[i].tolist(), Y[i]))
 
-n_train = 7000
+#n_train = 7000
+n_train = 11180
 trainX, testX = X.iloc[:n_train, :], X.iloc[n_train:, :]
 trainY, testY = Yc.iloc[:n_train], Yc.iloc[n_train:]
 
@@ -59,12 +60,20 @@ for i in range(5):
     print(predictions[i])
     print(predictions_2[i])
 
+# #  Save model and weights to separated files.
+# with open("Keras_Model/model.json", "w") as file:
+#      file.write(model.to_json())
+# model.save_weights("Keras_Model/weights.h5")
+
+#  # Save model and weights to the same file.
+# model.save('Keras_Model/model.h5', include_optimizer=False)
+
 #  Save model and weights to separated files.
-with open("Keras_Model/model.json", "w") as file:
+with open("Keras_Model/model_real.json", "w") as file:
      file.write(model.to_json())
-model.save_weights("Keras_Model/weights.h5")
+model.save_weights("Keras_Model/weights_real.h5")
 
  # Save model and weights to the same file.
-model.save('Keras_Model/model.h5', include_optimizer=False)
+model.save('Keras_Model/model_real.h5', include_optimizer=False)
 
 
