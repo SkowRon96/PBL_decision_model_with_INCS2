@@ -10,11 +10,11 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="1" name="dense_1/MatMul/1_port_transpose451_const" type="Const" version="opset1">
-			<data element_type="f32" offset="0" shape="60,6" size="1440"/>
+		<layer id="1" name="dense_1/MatMul/1_port_transpose574_const" type="Const" version="opset1">
+			<data element_type="f32" offset="0" shape="6,6" size="144"/>
 			<output>
 				<port id="1" precision="FP32">
-					<dim>60</dim>
+					<dim>6</dim>
 					<dim>6</dim>
 				</port>
 			</output>
@@ -27,23 +27,23 @@
 					<dim>6</dim>
 				</port>
 				<port id="1">
-					<dim>60</dim>
+					<dim>6</dim>
 					<dim>6</dim>
 				</port>
 			</input>
 			<output>
 				<port id="2" precision="FP32">
 					<dim>1</dim>
-					<dim>60</dim>
+					<dim>6</dim>
 				</port>
 			</output>
 		</layer>
 		<layer id="3" name="dense_1/BiasAdd/ReadVariableOp/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="1440" shape="1,60" size="240"/>
+			<data element_type="f32" offset="144" shape="1,6" size="24"/>
 			<output>
 				<port id="1" precision="FP32">
 					<dim>1</dim>
-					<dim>60</dim>
+					<dim>6</dim>
 				</port>
 			</output>
 		</layer>
@@ -51,17 +51,17 @@
 			<input>
 				<port id="0">
 					<dim>1</dim>
-					<dim>60</dim>
+					<dim>6</dim>
 				</port>
 				<port id="1">
 					<dim>1</dim>
-					<dim>60</dim>
+					<dim>6</dim>
 				</port>
 			</input>
 			<output>
 				<port id="2" precision="FP32">
 					<dim>1</dim>
-					<dim>60</dim>
+					<dim>6</dim>
 				</port>
 			</output>
 		</layer>
@@ -69,22 +69,22 @@
 			<input>
 				<port id="0">
 					<dim>1</dim>
-					<dim>60</dim>
+					<dim>6</dim>
 				</port>
 			</input>
 			<output>
 				<port id="1" precision="FP32">
 					<dim>1</dim>
-					<dim>60</dim>
+					<dim>6</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="6" name="dense_2/MatMul/1_port_transpose447_const" type="Const" version="opset1">
-			<data element_type="f32" offset="1680" shape="120,60" size="28800"/>
+		<layer id="6" name="dense_2/MatMul/1_port_transpose566_const" type="Const" version="opset1">
+			<data element_type="f32" offset="168" shape="60,6" size="1440"/>
 			<output>
 				<port id="1" precision="FP32">
-					<dim>120</dim>
 					<dim>60</dim>
+					<dim>6</dim>
 				</port>
 			</output>
 		</layer>
@@ -93,26 +93,26 @@
 			<input>
 				<port id="0">
 					<dim>1</dim>
-					<dim>60</dim>
+					<dim>6</dim>
 				</port>
 				<port id="1">
-					<dim>120</dim>
 					<dim>60</dim>
+					<dim>6</dim>
 				</port>
 			</input>
 			<output>
 				<port id="2" precision="FP32">
 					<dim>1</dim>
-					<dim>120</dim>
+					<dim>60</dim>
 				</port>
 			</output>
 		</layer>
 		<layer id="8" name="dense_2/BiasAdd/ReadVariableOp/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="30480" shape="1,120" size="480"/>
+			<data element_type="f32" offset="1608" shape="1,60" size="240"/>
 			<output>
 				<port id="1" precision="FP32">
 					<dim>1</dim>
-					<dim>120</dim>
+					<dim>60</dim>
 				</port>
 			</output>
 		</layer>
@@ -120,17 +120,17 @@
 			<input>
 				<port id="0">
 					<dim>1</dim>
-					<dim>120</dim>
+					<dim>60</dim>
 				</port>
 				<port id="1">
 					<dim>1</dim>
-					<dim>120</dim>
+					<dim>60</dim>
 				</port>
 			</input>
 			<output>
 				<port id="2" precision="FP32">
 					<dim>1</dim>
-					<dim>120</dim>
+					<dim>60</dim>
 				</port>
 			</output>
 		</layer>
@@ -138,22 +138,22 @@
 			<input>
 				<port id="0">
 					<dim>1</dim>
-					<dim>120</dim>
+					<dim>60</dim>
 				</port>
 			</input>
 			<output>
 				<port id="1" precision="FP32">
 					<dim>1</dim>
-					<dim>120</dim>
+					<dim>60</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="11" name="dense_3/MatMul/1_port_transpose443_const" type="Const" version="opset1">
-			<data element_type="f32" offset="30960" shape="60,120" size="28800"/>
+		<layer id="11" name="dense_3/MatMul/1_port_transpose558_const" type="Const" version="opset1">
+			<data element_type="f32" offset="1848" shape="120,60" size="28800"/>
 			<output>
 				<port id="1" precision="FP32">
-					<dim>60</dim>
 					<dim>120</dim>
+					<dim>60</dim>
 				</port>
 			</output>
 		</layer>
@@ -162,26 +162,26 @@
 			<input>
 				<port id="0">
 					<dim>1</dim>
-					<dim>120</dim>
+					<dim>60</dim>
 				</port>
 				<port id="1">
-					<dim>60</dim>
 					<dim>120</dim>
+					<dim>60</dim>
 				</port>
 			</input>
 			<output>
 				<port id="2" precision="FP32">
 					<dim>1</dim>
-					<dim>60</dim>
+					<dim>120</dim>
 				</port>
 			</output>
 		</layer>
 		<layer id="13" name="dense_3/BiasAdd/ReadVariableOp/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="59760" shape="1,60" size="240"/>
+			<data element_type="f32" offset="30648" shape="1,120" size="480"/>
 			<output>
 				<port id="1" precision="FP32">
 					<dim>1</dim>
-					<dim>60</dim>
+					<dim>120</dim>
 				</port>
 			</output>
 		</layer>
@@ -189,6 +189,75 @@
 			<input>
 				<port id="0">
 					<dim>1</dim>
+					<dim>120</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>120</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>120</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="15" name="dense_3/Relu" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>120</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>120</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="16" name="dense_4/MatMul/1_port_transpose562_const" type="Const" version="opset1">
+			<data element_type="f32" offset="31128" shape="60,120" size="28800"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>60</dim>
+					<dim>120</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="17" name="dense_4/MatMul" type="MatMul" version="opset1">
+			<data transpose_a="False" transpose_b="True"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>120</dim>
+				</port>
+				<port id="1">
+					<dim>60</dim>
+					<dim>120</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>1</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="18" name="dense_4/BiasAdd/ReadVariableOp/Output_0/Data_/copy_const" type="Const" version="opset1">
+			<data element_type="f32" offset="59928" shape="1,60" size="240"/>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>60</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="19" name="dense_4/BiasAdd/Add" type="Add" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
 					<dim>60</dim>
 				</port>
 				<port id="1">
@@ -203,7 +272,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="15" name="dense_3/Relu" type="ReLU" version="opset1">
+		<layer id="20" name="dense_4/Relu" type="ReLU" version="opset1">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -217,8 +286,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="16" name="dense_4/MatMul/1_port_transpose455_const" type="Const" version="opset1">
-			<data element_type="f32" offset="60000" shape="6,60" size="1440"/>
+		<layer id="21" name="dense_5/MatMul/1_port_transpose570_const" type="Const" version="opset1">
+			<data element_type="f32" offset="60168" shape="6,60" size="1440"/>
 			<output>
 				<port id="1" precision="FP32">
 					<dim>6</dim>
@@ -226,7 +295,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="17" name="dense_4/MatMul" type="MatMul" version="opset1">
+		<layer id="22" name="dense_5/MatMul" type="MatMul" version="opset1">
 			<data transpose_a="False" transpose_b="True"/>
 			<input>
 				<port id="0">
@@ -245,8 +314,8 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="18" name="dense_4/BiasAdd/ReadVariableOp/Output_0/Data_/copy_const" type="Const" version="opset1">
-			<data element_type="f32" offset="61440" shape="1,6" size="24"/>
+		<layer id="23" name="dense_5/BiasAdd/ReadVariableOp/Output_0/Data_/copy_const" type="Const" version="opset1">
+			<data element_type="f32" offset="61608" shape="1,6" size="24"/>
 			<output>
 				<port id="1" precision="FP32">
 					<dim>1</dim>
@@ -254,7 +323,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="19" name="dense_4/BiasAdd/Add" type="Add" version="opset1">
+		<layer id="24" name="dense_5/BiasAdd/Add" type="Add" version="opset1">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -272,7 +341,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="20" name="dense_4/Softmax" type="SoftMax" version="opset1">
+		<layer id="25" name="dense_5/Softmax" type="SoftMax" version="opset1">
 			<data axis="1"/>
 			<input>
 				<port id="0">
@@ -287,7 +356,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="21" name="dense_4/Softmax/sink_port_0" type="Result" version="opset1">
+		<layer id="26" name="dense_5/Softmax/sink_port_0" type="Result" version="opset1">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -317,7 +386,12 @@
 		<edge from-layer="17" from-port="2" to-layer="19" to-port="0"/>
 		<edge from-layer="18" from-port="1" to-layer="19" to-port="1"/>
 		<edge from-layer="19" from-port="2" to-layer="20" to-port="0"/>
-		<edge from-layer="20" from-port="1" to-layer="21" to-port="0"/>
+		<edge from-layer="20" from-port="1" to-layer="22" to-port="0"/>
+		<edge from-layer="21" from-port="1" to-layer="22" to-port="1"/>
+		<edge from-layer="22" from-port="2" to-layer="24" to-port="0"/>
+		<edge from-layer="23" from-port="1" to-layer="24" to-port="1"/>
+		<edge from-layer="24" from-port="2" to-layer="25" to-port="0"/>
+		<edge from-layer="25" from-port="1" to-layer="26" to-port="0"/>
 	</edges>
 	<meta_data>
 		<MO_version value="2021.1.0-1237-bece22ac675-releases/2021/1"/>
@@ -340,7 +414,7 @@
 			<mean_scale_values value="{}"/>
 			<mean_values value="()"/>
 			<model_name value="tf_model_real"/>
-			<output value="['dense_4/Softmax']"/>
+			<output value="['dense_5/Softmax']"/>
 			<output_dir value="DIR"/>
 			<placeholder_data_types value="{}"/>
 			<placeholder_shapes value="{'dense_1_input': array([1, 6], dtype=int64)}"/>

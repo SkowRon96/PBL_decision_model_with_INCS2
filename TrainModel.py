@@ -1,5 +1,5 @@
 from keras.models import Sequential
-from keras.layers import Dense
+from keras.layers import Dense, Dropout
 from keras.optimizers import SGD
 from keras.utils.vis_utils import plot_model
 from matplotlib import pyplot
@@ -23,14 +23,18 @@ trainX, testX = X.iloc[:n_train, :], X.iloc[n_train:, :]
 trainY, testY = Yc.iloc[:n_train], Yc.iloc[n_train:]
 
 model = Sequential()
-model.add(Dense(60, input_dim=6, activation='relu', kernel_initializer='he_uniform'))
-model.add(Dense(120, activation='relu'))
+model.add(Dense(6, input_dim=6, activation='relu', kernel_initializer='he_uniform'))
 model.add(Dense(60, activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(120, activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(60, activation='relu'))
+model.add(Dropout(0.2))
 model.add(Dense(6, activation='softmax'))
 
 opt = SGD(lr=0.05, momentum=0.75)
-model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
-history=model.fit(trainX, trainY, validation_data=(testX, testY), epochs=100)
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+history=model.fit(trainX, trainY, validation_data=(testX, testY), epochs=150)
 
 # evaluate the model
 _, train_acc = model.evaluate(trainX, trainY)
@@ -75,5 +79,3 @@ model.save_weights("Keras_Model/weights_real.h5")
 
  # Save model and weights to the same file.
 model.save('Keras_Model/model_real.h5', include_optimizer=False)
-
-

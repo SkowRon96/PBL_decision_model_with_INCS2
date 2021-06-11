@@ -112,8 +112,12 @@ def decision_making (row):
     if row['Knowl&achiev'] < random.uniform(0.4, 0.6) :
         return 'd_knowl&achiev'
     if row['Social_life'] < random.uniform(0.4, 0.6) :
-        return 'e_social_life'            
-    return 'f_dreams'
+        return 'e_social_life'
+    if row['Dreams'] < random.uniform(0.4, 0.6) :     
+        return 'f_dreams'
+    else:
+        all_needs = ['a_go_low','b_go_healthy_body','c_go_healthy_mind','d_knowl&achiev','e_social_life','f_dreams']
+        return random.choice(all_needs)
 
 data_out['Decison'] = data_out.apply(lambda row: decision_making (row), axis=1)
 
