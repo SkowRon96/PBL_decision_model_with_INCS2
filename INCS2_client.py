@@ -9,6 +9,7 @@ import logging as log
 import pandas as pd
 import datetime
 import random as r
+import statistics
 
 def build_argparser():
     parser = ArgumentParser(add_help=False)
@@ -69,6 +70,8 @@ def main():
     log.info("Loading model to the plugin")
     exec_net = ie.load_network(network=net, device_name=args.device)
 
+    time_list = [] #list to gather execution times 
+
     HOST = args.ip_server  # The server's hostname or IP address
     PORT = args.port_server  # The port used by the server
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -86,7 +89,7 @@ def main():
             commend_1='GN;;'
             s.send(commend_1.encode())
             log.info("Waiting for needs....")
-            data = s.recv(8192)
+            data = s.recv(40000)
             #print(data)
 
             StringData = StringIO('Food,Water,Dream,Sex,Toilet,High\n'+data.decode())
@@ -124,8 +127,8 @@ def main():
             time_diff = (end_time - start_time)
 
             execution_time = time_diff.total_seconds() * 1000
-
-            log.info("Execution time [ms]: ", execution_time)
+            time_list.append(execution_time)
+            log.error(f"Execution time average [ms]: {statistics.mean(time_list)}")
     log.info("End\n")
 
 if __name__ == '__main__':
